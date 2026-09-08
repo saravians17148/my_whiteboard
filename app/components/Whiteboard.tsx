@@ -47,9 +47,9 @@ export default function Whiteboard({ boardId }: WhiteboardProps) {
         zIndex: 1
       }}
     >
-      <Tldraw 
+      <Tldraw
         persistenceKey={`tldraw_board_${boardId}`}
-        // Remove licenseKey completely to allow open-source evaluation mode
+        licenseKey={process.env.tldraw-2026-12-17/WyI3dEZ4aG9YYSIsWyIqIl0sMTYsIjIwMjYtMTItMTciXQ.wiRu7OVYNyMMQMw+WbKvEeWuWQ3jkLYTJ28Fcr15Jjk9PpOq1QEHx2N7aGQI7T2eCiaV2VPlzfUkgST8s83CKA}
       />
     </div>
   );
