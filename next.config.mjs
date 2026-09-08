@@ -3,8 +3,8 @@ const nextConfig = {
   reactStrictMode: false,
   serverExternalPackages: ['tldraw'],
   env: {
-    // Ensures client canvas engines treat non-commercial deployments as standard instances
-    TLDRAW_ENV: 'development',
+    // Prevents Tldraw client bundle from triggering production domain lockouts
+    NEXT_PUBLIC_TLDRAW_ENV: 'development',
   },
 };
 

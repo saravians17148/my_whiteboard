@@ -48,9 +48,8 @@ export default function Whiteboard({ boardId }: WhiteboardProps) {
       }}
     >
       <Tldraw 
-        persistenceKey={`tldraw_board_${boardId}`} 
-        // Prevents production licensing unmount exception
-        licenseKey="community"
+        persistenceKey={`tldraw_board_${boardId}`}
+        // Remove licenseKey completely to allow open-source evaluation mode
       />
     </div>
   );
