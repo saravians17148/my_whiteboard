@@ -2,15 +2,20 @@
 "use client";
 
 import { use } from "react";
-import { Tldraw } from "tldraw";
+import dynamic from "next/dynamic";
 import "tldraw/tldraw.css";
+
+// Dynamically import Tldraw with SSR disabled
+const Tldraw = dynamic(
+  async () => (await import("tldraw")).Tldraw,
+  { ssr: false }
+);
 
 interface BoardPageProps {
   params: Promise<{ boardId: string }>;
 }
 
 export default function BoardPage({ params }: BoardPageProps) {
-  // Read board ID from dynamic URL
   const { boardId } = use(params);
 
   const copyShareLink = () => {
@@ -19,7 +24,7 @@ export default function BoardPage({ params }: BoardPageProps) {
   };
 
   return (
-    <div style={{ position: "fixed", inset: 0 }}>
+    <div style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh" }}>
       {/* Top Action Bar */}
       <div 
         style={{
