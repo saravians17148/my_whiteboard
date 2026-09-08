@@ -1,28 +1,50 @@
 // components/Whiteboard.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Tldraw } from "tldraw";
 import "tldraw/tldraw.css";
 
 export default function Whiteboard() {
-  const [mounted, setMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
+    // Flag mounting only after DOM layout phase completes
+    setIsMounted(true);
   }, []);
 
-  if (!mounted) {
+  if (!isMounted) {
     return (
-      <div style={{ display: "flex", height: "100vh", width: "100vw", alignItems: "center", justifyContent: "center", background: "#f8f9fa" }}>
-        Loading Whiteboard Canvas...
+      <div 
+        style={{ 
+          display: "flex", 
+          height: "100vh", 
+          width: "100vw", 
+          alignItems: "center", 
+          justifyContent: "center", 
+          background: "#f8f9fa",
+          color: "#666",
+          fontFamily: "sans-serif"
+        }}
+      >
+        Initializing Canvas Engine...
       </div>
     );
   }
 
   return (
-    <div style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh" }}>
-      <Tldraw />
+    <div 
+      ref={containerRef}
+      style={{ 
+        position: "fixed", 
+        inset: 0, 
+        width: "100vw", 
+        height: "100vh",
+        overflow: "hidden" 
+      }}
+    >
+      <Tldraw key="tldraw-persistent-instance" />
     </div>
   );
 }
