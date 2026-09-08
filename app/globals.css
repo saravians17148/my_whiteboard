@@ -1,6 +1,6 @@
 @import "tailwindcss";
 /* app/globals.css */
-
+@import "tldraw/tldraw.css";
 html,
 body {
   margin: 0;
