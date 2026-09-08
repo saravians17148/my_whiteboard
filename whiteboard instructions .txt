@@ -1,0 +1,23 @@
+:: 1. Create a new Next.js project
+npx create-next-app@latest my-whiteboard --typescript --tailwind --eslint
+
+:: (Press Enter to accept default setup options)
+
+:: 2. Navigate into your project folder
+cd my-whiteboard
+
+:: 3. Install Tldraw canvas engine and Liveblocks real-time SDKs
+npm install tldraw @liveblocks/client @liveblocks/react @liveblocks/yjs yjs
+
+code .
+
+suppressHydrationWarning={true}
+
+run in powershell
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+npm run dev
+
+after that run 
+http://localhost:3000/board/room-1
