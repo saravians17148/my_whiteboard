@@ -3,7 +3,7 @@
 
 import { use } from "react";
 import dynamic from "next/dynamic";
-import { Room } from "@/components/Room";
+import { Room } from "../../components/Room";
 // Dynamically import the custom Whiteboard component without SSR
 const Whiteboard = dynamic(() => import("../../components/Whiteboard"), {
   ssr: false,
