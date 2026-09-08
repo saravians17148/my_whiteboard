@@ -49,7 +49,7 @@ export default function Whiteboard({ boardId }: WhiteboardProps) {
     >
       <Tldraw
         persistenceKey={`tldraw_board_${boardId}`}
-        licenseKey={WyI3dEZ4aG9YYSIsWyIqIl0sMTYsIjIwMjYtMTItMTciXQ.wiRu7OVYNyMMQMw+WbKvEeWuWQ3jkLYTJ28Fcr15Jjk9PpOq1QEHx2N7aGQI7T2eCiaV2VPlzfUkgST8s83CKA}
+        licenseKey={"WyI3dEZ4aG9YYSIsWyIqIl0sMTYsIjIwMjYtMTItMTciXQ.wiRu7OVYNyMMQMw+WbKvEeWuWQ3jkLYTJ28Fcr15Jjk9PpOq1QEHx2N7aGQI7T2eCiaV2VPlzfUkgST8s83CKA"}
       />
     </div>
   );
