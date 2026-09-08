@@ -27,7 +27,6 @@ export default function BoardPage({ params }: BoardPageProps) {
 
   return (
     <main style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
-      {/* Top Floating Control Bar */}
       <div 
         style={{
           position: "absolute",
@@ -62,7 +61,7 @@ export default function BoardPage({ params }: BoardPageProps) {
         </button>
       </div>
 
-      <Whiteboard />
+      <Whiteboard boardId={boardId} />
     </main>
   );
 }

@@ -5,12 +5,15 @@ import { useEffect, useState, useRef } from "react";
 import { Tldraw } from "tldraw";
 import "tldraw/tldraw.css";
 
-export default function Whiteboard() {
+interface WhiteboardProps {
+  boardId: string;
+}
+
+export default function Whiteboard({ boardId }: WhiteboardProps) {
   const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Flag mounting only after DOM layout phase completes
     setIsMounted(true);
   }, []);
 
@@ -44,7 +47,8 @@ export default function Whiteboard() {
         overflow: "hidden" 
       }}
     >
-      <Tldraw key="tldraw-persistent-instance" />
+      {/* persistenceKey saves data to localStorage bound to this specific room ID */}
+      <Tldraw persistenceKey={`tldraw_board_${boardId}`} />
     </div>
   );
 }
