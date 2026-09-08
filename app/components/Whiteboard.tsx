@@ -14,8 +14,8 @@ export default function Whiteboard() {
 
   if (!mounted) {
     return (
-      <div style={{ display: "flex", height: "100vh", width: "100vw", alignItems: "center", justifyContent: "center" }}>
-        Loading Whiteboard...
+      <div style={{ display: "flex", height: "100vh", width: "100vw", alignItems: "center", justifyContent: "center", background: "#f8f9fa" }}>
+        Loading Whiteboard Canvas...
       </div>
     );
   }

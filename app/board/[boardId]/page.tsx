@@ -4,7 +4,7 @@
 import { use } from "react";
 import dynamic from "next/dynamic";
 
-const Whiteboard = dynamic(() => import("@/components/Whiteboard"), {
+const Whiteboard = dynamic(() => import("../../components/Whiteboard"), {
   ssr: false,
   loading: () => (
     <div style={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center" }}>
