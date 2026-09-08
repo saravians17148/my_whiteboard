@@ -2,10 +2,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useStorageStore } from "@liveblocks/react-tldraw";
 import { Tldraw } from "tldraw";
 import "tldraw/tldraw.css";
 
 export default function Whiteboard() {
+    const store = useStorageStore();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
