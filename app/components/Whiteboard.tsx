@@ -6,17 +6,16 @@ import { Tldraw } from "tldraw";
 import "tldraw/tldraw.css";
 
 export default function Whiteboard() {
-  const [isReady, setIsReady] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Ensures rendering happens strictly on the browser DOM after hydration
-    setIsReady(true);
+    setMounted(true);
   }, []);
 
-  if (!isReady) {
+  if (!mounted) {
     return (
-      <div className="flex h-screen w-screen items-center justify-center bg-gray-50 text-gray-500">
-        Loading Whiteboard...
+      <div style={{ display: "flex", height: "100vh", width: "100vw", alignItems: "center", justifyContent: "center", background: "#f8f9fa" }}>
+        Loading Whiteboard Canvas...
       </div>
     );
   }
