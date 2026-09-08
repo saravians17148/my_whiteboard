@@ -3,7 +3,7 @@
 
 import { use } from "react";
 import dynamic from "next/dynamic";
-
+import { Room } from "@/components/Room";
 // Dynamically import the custom Whiteboard component without SSR
 const Whiteboard = dynamic(() => import("../../components/Whiteboard"), {
   ssr: false,
@@ -27,7 +27,8 @@ export default function BoardPage({ params }: BoardPageProps) {
   };
 
   return (
-    <main style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
+    <Room roomId={boardId}>
+      <main style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
       {/* Top Floating Control Bar */}
       <div 
         style={{
@@ -66,5 +67,6 @@ export default function BoardPage({ params }: BoardPageProps) {
       {/* Render Isolate Canvas Wrapper */}
       <Whiteboard />
     </main>
+    </Room>
   );
 }
