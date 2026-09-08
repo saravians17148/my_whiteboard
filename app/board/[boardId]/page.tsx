@@ -9,18 +9,18 @@ interface BoardPageProps {
   params: Promise<{ boardId: string }>;
 }
 
-// Ensure "default" is written before "function"
 export default function BoardPage({ params }: BoardPageProps) {
+  // Read board ID from dynamic URL
   const { boardId } = use(params);
 
   const copyShareLink = () => {
     navigator.clipboard.writeText(window.location.href);
-    alert("Board share link copied to clipboard!");
+    alert("Board link copied! Anyone with this link can access this room.");
   };
 
   return (
     <div style={{ position: "fixed", inset: 0 }}>
-      {/* Floating Toolbar Header */}
+      {/* Top Action Bar */}
       <div 
         style={{
           position: "absolute",
@@ -36,7 +36,7 @@ export default function BoardPage({ params }: BoardPageProps) {
           alignItems: "center"
         }}
       >
-        <span style={{ fontWeight: 600, fontSize: "14px" }}>Room: {boardId}</span>
+        <span style={{ fontWeight: 600, fontSize: "14px" }}>Room ID: {boardId}</span>
         <button
           onClick={copyShareLink}
           style={{
@@ -53,7 +53,7 @@ export default function BoardPage({ params }: BoardPageProps) {
         </button>
       </div>
 
-      {/* Embedded Whiteboard Canvas */}
+      {/* Interactive Whiteboard Canvas */}
       <Tldraw />
     </div>
   );
