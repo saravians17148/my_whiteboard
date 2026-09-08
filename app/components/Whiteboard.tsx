@@ -1,30 +1,21 @@
 // components/Whiteboard.tsx
 "use client";
 
-import { useEffect, useState } from "react";
-import { useStorageStore } from "@liveblocks/react-tldraw";
+import { useSyncDemo } from "@tldraw/sync";
 import { Tldraw } from "tldraw";
 import "tldraw/tldraw.css";
 
-export default function Whiteboard() {
-    const store = useStorageStore();
-  const [mounted, setMounted] = useState(false);
+interface WhiteboardProps {
+  roomId: string;
+}
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div style={{ display: "flex", height: "100vh", width: "100vw", alignItems: "center", justifyContent: "center", background: "#f8f9fa" }}>
-        Loading Whiteboard Canvas...
-      </div>
-    );
-  }
+export default function Whiteboard({ roomId }: WhiteboardProps) {
+  // Automatically creates a shared real-time multiplayer room
+  const store = useSyncDemo({ roomId });
 
   return (
     <div style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh" }}>
-      <Tldraw />
+      <Tldraw store={store} />
     </div>
   );
 }
