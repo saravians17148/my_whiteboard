@@ -1,7 +1,7 @@
 // components/Whiteboard.tsx
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Tldraw } from "tldraw";
 import "tldraw/tldraw.css";
 
@@ -11,7 +11,6 @@ interface WhiteboardProps {
 
 export default function Whiteboard({ boardId }: WhiteboardProps) {
   const [isMounted, setIsMounted] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -27,27 +26,27 @@ export default function Whiteboard({ boardId }: WhiteboardProps) {
           alignItems: "center", 
           justifyContent: "center", 
           background: "#f8f9fa",
-          color: "#666",
-          fontFamily: "sans-serif"
+          color: "#666"
         }}
       >
-        Initializing Canvas Engine...
+        Loading Whiteboard Canvas...
       </div>
     );
   }
 
   return (
     <div 
-      ref={containerRef}
       style={{ 
         position: "fixed", 
-        inset: 0, 
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         width: "100vw", 
         height: "100vh",
-        overflow: "hidden" 
+        zIndex: 1
       }}
     >
-      {/* persistenceKey saves data to localStorage bound to this specific room ID */}
       <Tldraw persistenceKey={`tldraw_board_${boardId}`} />
     </div>
   );
